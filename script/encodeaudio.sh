@@ -7,8 +7,7 @@ usage(){
 }
 [ -z "${2}" ] && usage
 ffmpeg -i "${1}" \
-    -ar 16000 \
     -codec:a aac -strict experimental \
-    -b:a 22k \
+    -b:a 26k \
     "${2}"
 
