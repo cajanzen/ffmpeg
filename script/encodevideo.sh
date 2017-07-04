@@ -8,7 +8,8 @@ usage(){
 [ -z "${2}" ] && usage
 # 0.33*PTS = 3x speed multiplier
 [ -z "${3}" ] && filterexp="" || filterexp="-filter:v \"setpts=${3}*PTS\""
-echo ffmpeg -i "${1}" \
+ffmpeg -i "${1}" \
     -codec:v h264 ${filterexp} \
-    -b:v 200k -movflags +faststart \
+    -crf 25 \
+    -movflags +faststart \
     "${2}"
